@@ -1,2 +1,2 @@
-# defender
-javascript defender clone
+# Attack of the Clowns
+javascript scroller game
