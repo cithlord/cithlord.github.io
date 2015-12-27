@@ -274,10 +274,10 @@ function gameLoop() {
     hitTest();
     shipCollision();
     moveLaser();
+    drawLaser();
     moveEnemies();
     drawEnemies();
     drawShip();
-    drawLaser();
   }
   scoreTotal();
   game = setTimeout(gameLoop, 1000 / 30);
