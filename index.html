@@ -206,18 +206,18 @@ function getCursorPos(e) {
 //Draws the text for the score and lives on the canvas and if the player runs out of lives, it's draws the game over text and continue button as well as adding the event listener for the continue button
 function scoreTotal() {
   ctx.font = 'bold 20px VT323';
-  ctx.fillStyle = '#ffff00'; // yellow
+  ctx.fillStyle = '#fff'; 
   ctx.fillText('Score: ', 10, 55);
   ctx.fillText(score, 70, 55);
   ctx.fillText('Lives:', 10, 30);
   ctx.fillText(lives, 68, 30);
-  ctx.fillStyle = '#fff'; // Back to white for default fillcolor
   
   if (!gameStarted) {
     ctx.font = 'bold 50px VT323';
     ctx.fillStyle = '#ffff00'; // yellow
     ctx.fillText('Attack Of The Clowns', width / 2 - 200, height / 2);
     ctx.font = 'bold 20px VT323';
+    ctx.fillStyle = '#fff'; 
     ctx.fillText('Click to Play', width / 2 - 56, height / 2 + 30);
     ctx.fillText('Use arrow keys to move', width / 2 - 100, height / 2 + 60);
     ctx.fillText('Use SPACE key to shoot', width / 2 - 100, height / 2 + 90);
