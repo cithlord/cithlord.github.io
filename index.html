@@ -217,7 +217,7 @@ function scoreTotal() {
     ctx.font = 'bold 20px VT323';
     ctx.fillText('Click to Play', width / 2 - 56, height / 2 + 30);
     ctx.fillText('Use arrow keys to move', width / 2 - 100, height / 2 + 60);
-    ctx.fillText('Use the x key to shoot', width / 2 - 100, height / 2 + 90);
+    ctx.fillText('Use SPACE key to shoot', width / 2 - 100, height / 2 + 90);
   }
   if (!alive) {
     ctx.fillText('Game Over!', 245, height / 2);
@@ -286,7 +286,7 @@ function keyDown(e) {
   else if (e.keyCode == 37) leftKey = true;
   if (e.keyCode == 38) upKey = true;
   else if (e.keyCode == 40) downKey = true;
-  if (e.keyCode == 88 && lasers.length <= laserTotal) lasers.push([ship_x + 25, ship_y - 20, 4, 20]);
+  if (e.keyCode == 32 && lasers.length <= laserTotal) lasers.push([ship_x + 25, ship_y - 20, 4, 20]);
 }
 
 //Checks to see if a pressed key has been released and stops the ships movement if it has
