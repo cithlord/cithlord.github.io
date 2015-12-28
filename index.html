@@ -3,13 +3,21 @@
 <head>
 <meta charset="utf-8" />
 <title>Attack of the Clowns</title>
-<link href='http://fonts.googleapis.com/css?family=VT323' rel='stylesheet' />
+<script data-cfasync="false" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script data-cfasync="false" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
+<script data-cfasync="false" src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous" rel="stylesheet">
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous" rel="stylesheet">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+<link href="http://fonts.googleapis.com/css?family=VT323" rel="stylesheet" />
 <style>
 body {
   padding:0;
   margin:0;
-  background:#666;
+  background:#eee;
 }
+
 canvas {
   display:block;
   margin:30px auto 0;
@@ -168,17 +176,6 @@ function reset() {
   }
 }
 
-//After the player loses all their lives, the continue button is shown and if clicked, it resets the game and removes the event listener for the continue button
-function continueButton(e) {
-  var cursorPos = getCursorPos(e);
-  if (cursorPos.x > (width / 2) - 53 && cursorPos.x < (width / 2) + 47 && cursorPos.y > (height / 2) + 10 && cursorPos.y < (height / 2) + 50) {
-    alive = true;
-    lives = 3;
-    reset();
-    canvas.removeEventListener('click', continueButton, false);
-  }
-}
-
 //holds the cursors position
 function cursorPosition(x,y) {
   this.x = x;
@@ -225,9 +222,13 @@ function scoreTotal() {
   if (!alive) {
     ctx.fillText('Game Over!', 245, height / 2);
     ctx.fillRect((width / 2) - 60, (height / 2) + 10,100,40);
-    ctx.fillStyle = '#000';
-    ctx.fillText('Continue?', 250, (height / 2) + 35);
-    canvas.addEventListener('click', continueButton, false);
+
+    var answer = confirm("Continue?");
+    if (answer == true) {
+      alive = true;
+      lives = 3;
+      reset();
+    }
   }
 }
 
@@ -303,8 +304,59 @@ function keyUp(e) {
 window.onload = init;
 </script>
 </head>
-
 <body>
-  <canvas id="canvas" width="600" height="600"></canvas>
+<div class="container">
+    <div class="row">
+      <div class="col-md-2">
+        <div class="sidebar-nav-fixed affix">
+            <div class="well">
+                <ul class="nav ">
+                  <li class="nav-header">Versions</li>
+                  <li><a href='index1.html'>Draw our ship</a></li>
+                  <li><a href='index2.html'>Add Enemies</a></li>
+                  <li><a href='index3.html'>Lasers. Pew! Pew!</a></li>
+                  <li><a href='index4.html'>Laser Hits</a></li>
+                  <li><a href='index5.html'>Ship Hits</a></li>
+                  <li><a href='index6.html'>Game Over</a></li>
+                  <li><a href='index7.html'>Start Screen</a></li>
+                </ul>
+            </div>
+            <!--/.well -->
+        </div>
+        <!--/sidebar-nav-fixed -->
+      </div>
+      <!--/span-->
+      <div class="col-md-8">
+        <canvas id="canvas" width="600" height="600"></canvas>
+      </div>
+      <!--/span-->
+      <div class="col-md-2">
+        <div class="sidebar-nav-fixed pull-right affix">
+          <div class="well">
+              <ul class="nav ">
+                <li class="nav-header">Controls</li>
+                <li><a href='https://github.com/cithlord/cithlord.github.io'>Cith Lord's code</a></li>
+                <li><a href='https://cithlord.github.io'>Cith Lord's site</a></li>
+                <li><a href='index3.html'>Lasers. Pew! Pew!</a></li>
+                <li><a href='index4.html'>Laser Hits</a></li>
+                <li><a href='index5.html'>Ship Hits</a></li>
+                <li><a href='index6.html'>Game Over</a></li>
+                <li><a href='index7.html'>Start Screen</a></li>
+              </ul>
+          </div>
+          <!--/.well -->
+        </div>
+        <!--/sidebar-nav-fixed -->
+    </div>
+    <!--/span-->
+  </div>
+  <!--/row-->
+
+  <footer>
+    <p>© Anodyne Solutions Ltd. 2016</p>
+  </footer>
+</div>
+<!--/.fluid-container-->
+  
 </body>
 </html>

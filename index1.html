@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!-- saved from url=(0075)http://atomicrobotdesign.com/blog_media/canvas_game/Part_1/part_1_ship.html -->
+<html lang="en" data-minimalscrollbar="yes"><style>html::-webkit-scrollbar{display:none !important}body::-webkit-scrollbar{display:none !important}</style><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<title>HTML5 Canvas Shooter Game Tutorial Part 1</title>
+<style>
+body {
+  padding:0;
+  margin:0;
+  background:#666;
+}
+canvas {
+  display:block;
+  margin:30px auto 0;
+  border:1px dashed #ccc;
+  background:#000;
+}
+</style>
+<script>
+var canvas,
+    ctx,
+    width = 600,
+    height = 600,
+    ship_x = (width / 2) - 25, ship_y = height - 75, ship_w = 50, ship_h = 50;
+
+function clearCanvas() {
+  ctx.clearRect(0,0,width,height);
+}
+
+function drawShip() {
+  ctx.fillStyle = '#0f0';
+  ctx.fillRect(ship_x, ship_y, ship_w, ship_h);
+}
+
+function init() {
+  canvas = document.getElementById('canvas');
+  ctx = canvas.getContext('2d');
+  setInterval(gameLoop, 25);
+}
+
+function gameLoop() {
+  clearCanvas();
+  drawShip();
+}
+
+window.onload = init;
+</script>
+<style>#content > #right > .dose > .dosesingle,
+#content > #center > .dose > .dosesingle
+{display:none !important;}</style></head>
+
+<body>
+<canvas id="canvas" width="600" height="600"></canvas>
+
+<div id="scrollrail-vertical" class="disabled" style="width: 12px; border-left-width: 1px;"><div id="scrollbar-vertical" style="visibility: hidden; border-radius: 5px 7px; box-shadow: rgba(255, 255, 255, 0.901961) 0px 0px 1px 1px; height: 937px; top: 2px; opacity: 0;"></div></div><div id="scrollrail-horizontal" class="disabled" style="height: 12px; border-top-width: 1px;"><div id="scrollbar-horizontal" style="visibility: hidden; border-radius: 14px 10px; box-shadow: rgba(255, 255, 255, 0.901961) 0px 0px 1px 1px; width: 1676px; left: 2px; opacity: 0;"></div></div></body></html>
